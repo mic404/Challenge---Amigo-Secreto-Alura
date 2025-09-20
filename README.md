@@ -1,4 +1,5 @@
 # Challenge - Amigo Secreto Alura
+AMIGO SECRETO
 
 Una aplicación web sencilla para organizar sorteos de Amigo Secreto de forma rápida y divertida.
 Los usuarios pueden ingresar los nombres de los participantes y el sistema se encarga de seleccionar uno al azar.
