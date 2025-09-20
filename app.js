@@ -2,25 +2,27 @@
 
 // VARIABLES
 
-let amigos = []; // Array donde se guardaran los nombres de los amigos.
-let inputAmigos = document.getElementById("amigo"); // En esta variable se ingresan los nombres de los amigos, tambien sirve para controlar que que se haya ingresado un nombre.
-let listaAmigos = document.getElementById("listaAmigos"); // Con esta variable podemos acceder a la lista de amigos para luego mostrarla en pantalla.
+let listaDeAmigos = []; // Array donde se guardaran los nombres de los amigos.
+let entradaDeAmigos = document.getElementById("amigo"); // Entrada en la que se ingresan los nombres.
+let listadoDeAmigos = document.getElementById("listaAmigos"); // Con esta variable podemos acceder a la lista de amigos para luego mostrarla en pantalla.
 let sorteo = document.getElementById("resultado"); // Con esta variable mostraremos cual nombre dentro de la lista fue seleccionado al azar.
 
 // FUNCIONES
 
-function añadirAmigo() {
+function agregarAmigo() {
     // Funcion que guarda los nombre en la lista "amigos" y luego los muestra en pantalla.
-    if (inputAmigos.value == ""){
+    if (entradaDeAmigos.value == ""){ // Este if nos sirve para controlar si se agrego un nombre, si no es el caso se mostara una alerta en pantalla.
         alert("SE DEBE INGRESAR UN NOMBRE");
+        return;
     }
-    listaAmigos.push(inputAmigos.value);
-    listaAmigos.innerHTML += `<li>${inputAmigos.value}</li>`;
+    listaDeAmigos.push(entradaDeAmigos.value); // Si se agrego un nombre se guardara en en el array de amigos.
+    listadoDeAmigos.innerHTML += `<li>${entradaDeAmigos.value}</li>`; // Se mostrara en pantalla, en forma de lista, los nombres que han sido agregados.
+    entradaDeAmigos.value = ""; // Se limpia la entrada luego de enviar el nombre.
 }
 
 function sortearAmigo() {
     // Funcion en la tomaremos los nombres dentro de la lista "listaAmigos" para luego sortearlos usando la funciones Math.floor y Math.random.
-    let random = Math.floor(Math.random() * listaAmigos.length);
-    let amigoSecreto = listaAmigos[random];
-    sorteo.innerHTML = `<li>Tu amigo secreto es: ${amigoSecreto}</li>`;
+    let random = Math.floor(Math.random() * listaDeAmigos.length); // Usando las funciones de Math se crea un indice entre 0 y la longitud de la lista -1.
+    let amigoSecreto = listaDeAmigos[random]; // Se obtiene uno de los nombres al alzar.
+    sorteo.innerHTML = `<li>Tu amigo secreto es: ${amigoSecreto}</li>`; // Se muestra el nombre al azar en pantalla.
 }
